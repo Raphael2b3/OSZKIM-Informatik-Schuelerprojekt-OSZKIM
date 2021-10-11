@@ -11,14 +11,17 @@ class Map:
     ground = 20  # wall_DistanceBottomFromWall
     mapimage_X = 290
 
-    wall_design = p.image.load("Assets/Map/Bush2.png")  # wände links rechts
+    wall_side_design = p.image.load("Assets/Map/Bush2.png")  # wände links rechts
     wall_sideHitbox = (38, 70)
 
     wall_top_design = p.image.load("Assets/Map/Bush1.png")  # wände oben unten
     wall_topHitbox = (70, 40)
 
-    hindernis_design = p.image.load("Assets/Map/RTS_Crate_0.png")  # wände oben unten
-    hindernis_Hitbox = (70, 40)
+    barrier_design = p.image.load("Assets/Map/RTS_Crate_0.png")  # wände oben unten
+    barrier_hitbox = (73, 73)
+
+    wall_design = p.image.load("Assets/Scam/theREALbox.png")  # wände oben unten
+    wall_hitbox = (73, 73)
 
     groundcolor = (39, 45, 64)
 
@@ -43,9 +46,9 @@ class Map:
         for i in range(int(Bomberman.screensize[1] / Wall.height) + 1):
             y = -30 + (i * Wall.height)
             self.walls.append(
-                Wall(self.wall_design, size, self.wall_sideHitbox, (self.leftWall - 20, y), x_offset=self.mapimage_X))
+                Wall(self.wall_side_design, size, self.wall_sideHitbox, (self.leftWall - 20, y), x_offset=self.mapimage_X))
             self.walls.append(
-                Wall(self.wall_design, size, self.wall_sideHitbox, (Bomberman.screensize[0] - self.rightWall - 60, y),
+                Wall(self.wall_side_design, size, self.wall_sideHitbox, (Bomberman.screensize[0] - self.rightWall - 60, y),
                      x_offset=self.mapimage_X))
 
         size = (Wall.width + 50, Wall.height + 40)
@@ -57,11 +60,11 @@ class Map:
                                    (y, (Bomberman.screensize[1] - self.ground) - 30), x_offset=self.mapimage_X))
         # endregion
 
-        # random walls
+        # undestroyable walls...
         for x in range(1, 15, 2):
             for y in range(1, 11, 2):
-                self.hindernisse.append(
-                    Wall(self.hindernis_design, (100, 100), self.hindernis_Hitbox, (300 + x * 72, 40 + y * 72),
+                self.walls.append(
+                    Wall(self.wall_design, (70, 70), self.barrier_hitbox, (320 + x * 72, 20 + y * 72),
                          x_offset=self.mapimage_X))
 
         self.mapimage = self.mapimage.convert_alpha()
