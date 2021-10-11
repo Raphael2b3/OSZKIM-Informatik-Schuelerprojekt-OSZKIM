@@ -71,9 +71,9 @@ class InGameScene:
     def event_handler(self, event):
         if event.type == p.KEYDOWN:
             if event.key == p.K_SPACE:  # Spieler1 bombe wird geplaced wenn Space gedrückt wurde
-                self.players[0].placebomb()
+                self.players[0].placebomb(self)
             elif event.key == p.K_RCTRL:  # Spieler2 Bomb rechte control knopf
-                self.players[1].placebomb()
+                self.players[1].placebomb(self)
 
     def collision_detection(self):
         remove = []
