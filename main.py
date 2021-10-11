@@ -1,4 +1,6 @@
-from classes import *
+from Classes.Bomberman import *
+from Classes.Scenes.MainMenuScene import MainMenuScene
+
 
 def controls_events():
     keys_pressed = p.key.get_pressed()
