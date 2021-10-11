@@ -1,8 +1,9 @@
 from Classes.Bomberman import Bomberman, p
-from Classes.Objects.Player import Player
 from Classes.GUIElements.Animation import Animation
+from Classes.Objects.Player import Player
 
 
+#  TODO Update on the right times...
 class Playerbox:
     x = 0
     y = 0
@@ -62,7 +63,7 @@ class Playerbox:
         self.boximage.blit(self.strengthImage, (self.width - 80, 140))
         self.boximage.blit(t[0], t[1])  # power Text
 
-        # speed
+        # distance
         t = Bomberman.text_image(str(self.player.speed), Bomberman.arial30, Bomberman.white, self.width - 30, 195)
         self.boximage.blit(self.speedImage, (self.width - 80, 195))
         self.boximage.blit(t[0], t[1])  # health Text
