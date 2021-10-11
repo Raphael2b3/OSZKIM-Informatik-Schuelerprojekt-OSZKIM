@@ -4,7 +4,7 @@ from Classes.GUIElements.Map import Map
 
 class Bombanimation:
     state = 0
-    speed = 10
+    distance = 90
     thickness = 30
     vectors = {
         "top": [0, -1],  # top
@@ -12,7 +12,7 @@ class Bombanimation:
         "left": [-1, 0],  # left
         "right": [1, 0]  # right
     }
-    timeInSec = 1
+    timeInSec = 0.3
 
     def __init__(self, position, player):
         self.player = player
@@ -26,13 +26,18 @@ class Bombanimation:
         for k in ["top", "bottom", "left", "right"]:
             self.hitboxen[k].center = position
 
-    def draw(self):
+        self.speed = self.distance / (self.timeInSec*Bomberman.fps)
 
+    def draw(self):
+        print(self.speed)
         self.move()
         if self.state < self.timeInSec * Bomberman.fps:
             for k in self.hitboxen.keys():
                 p.draw.rect(Bomberman.screen, (215, 215, 53), self.hitboxen[k])
+        else:
+            return True
         self.state += 1
+        return False
 
     def collision_detection(self, objekt, id, remove, map: Map):
         deleted_hitboxen = []
@@ -54,5 +59,5 @@ class Bombanimation:
     def move(self):
         for k in self.hitboxen.keys():
             vect = self.vectors[k]
-            self.hitboxen[k].topleft = (self.hitboxen[k].topleft[0] + vect[0] * self.speed,
-                                        self.hitboxen[k].topleft[1] + vect[1] * self.speed)  # zukünftige hitbox
+            self.hitboxen[k].topleft = (self.hitboxen[k].topleft[0] + vect[0]*self.speed,
+                                        self.hitboxen[k].topleft[1] + vect[1]*self.speed)  # zukünftige hitbox
