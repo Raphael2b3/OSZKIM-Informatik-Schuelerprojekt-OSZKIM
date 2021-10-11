@@ -1,6 +1,4 @@
 from classes import *
-import time
-
 
 def controls_events():
     keys_pressed = p.key.get_pressed()
