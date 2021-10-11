@@ -3,6 +3,7 @@ from Classes.GUIElements.Animation import Animation
 from Classes.GUIElements.Map import Map
 from Classes.Objects.Bomb import Bomb
 
+
 # Charactere
 class Player:
     # eigenschaften
@@ -74,4 +75,3 @@ class Player:
                 self.walking_animation.flip_frames()
                 self.afk_animation.flip_frames()
                 self.walking_animation.draw(self.rep, y=self.offset[1])
-
