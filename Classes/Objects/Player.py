@@ -51,9 +51,11 @@ class Player:
         self.rep.topleft = (
             self.rep.topleft[0] + vect[0] * self.speed, self.rep.topleft[1] + vect[1] * self.speed)  # zukünftige hitbox
 
-    def placebomb(self):
+    def placebomb(self, scene):
         if self.bombcooldown == 0 and len(self.bombs) < 3:  # wenn noch bomben übrig sind
             self.bombs.append(Bomb(self.rep.center, self))
+            scene.gui[self.id].update()
+
 
     def draw(self):
         self.walkAnim()
