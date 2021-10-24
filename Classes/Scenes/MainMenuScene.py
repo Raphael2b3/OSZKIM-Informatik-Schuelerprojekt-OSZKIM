@@ -30,7 +30,7 @@ class MainMenuScene:
     def __init__(self):
         # erstellt die objekte der scene sodass man sie nicht immer wieder generieren muss
         self.gamestart = False
-        self.screemimage = p.surface.Surface(p.display.get_window_size())
+        self.screenimage = p.surface.Surface(p.display.get_window_size())
 
         # buttons
         self.buttons["play"] = Button(self.pPLAYBTN_MO, self.pPLAYBTN, Bomberman.screensize[0] / 2, 450,
@@ -45,7 +45,7 @@ class MainMenuScene:
         self.update()
 
     def draw(self):  # pro frame aufgerufen
-        Bomberman.screen.blit(self.screemimage, self.screemimage.get_rect())
+        Bomberman.screen.blit(self.screenimage, self.screenimage.get_rect())
         if self.Titelbild.state < 0.2 or not self.gamestart:  # freeze wenn die animation im letzten bild ist oder
             #  noch nicht play gedrückt wurde()
             self.Titelbild.draw(self.Titelbild.rect, freeze=True)
@@ -56,11 +56,11 @@ class MainMenuScene:
 
     def update(self):
         # zeichnet die gespeicherten objekte der scene für jeden frame auf
-        self.screemimage.fill((0, 0, 0))  # Hintergrund füllen
-        self.screemimage.blit(self.credits[0], self.credits[1])  # "copyright by temesgen gordon & raphael"
+        self.screenimage.fill((0, 0, 0))  # Hintergrund füllen
+        self.screenimage.blit(self.credits[0], self.credits[1])  # "copyright by temesgen gordon & raphael"
         # bestimmt wann das Titelbild gefreezed sein soll und wann nicht
         for button in self.buttons.values():
-            self.screemimage.blit(button.get_currentframe(), button.rep)
+            self.screenimage.blit(button.get_currentframe(), button.rep)
 
     def key_press_handler(self, key_pressed):
         pass

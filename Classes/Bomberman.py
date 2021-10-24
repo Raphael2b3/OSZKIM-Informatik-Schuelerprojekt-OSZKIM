@@ -1,12 +1,5 @@
 import pygame as p
 import re
-"""from Classes.GUIElements.Animation import Animation
-from Classes.GUIElements.Button import Button
-from Classes.GUIElements.Map import Map
-from Classes.GUIElements.Playerbox import Playerbox
-from Classes.Objects.Bombanimation import Bombanimation
-from Classes.Scenes.InGameScene import InGameScene
-"""
 
 p.init()
 
