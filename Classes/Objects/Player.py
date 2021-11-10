@@ -39,7 +39,8 @@ class Player:
             if objekt.hitbox.colliderect(self.rep):
                 p.draw.rect(Bomberman.screen, (122, 122, 0), self.rep)
                 p.draw.rect(Bomberman.screen, (122, 0, 122), objekt.hitbox)
-                self.move([-self.vector[0], -self.vector[1]])
+                self.move([-self.vector[0], -self.vector[1]])                
+                self.moving = "left" if self.movingstate == "right" and self.movingstate != "afk" else "right"
         for bomb in self.bombs:
             bomb.collision_detection(objekt, id, remove, map)
 
