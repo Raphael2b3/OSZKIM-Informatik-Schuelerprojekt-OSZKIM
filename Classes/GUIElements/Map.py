@@ -81,3 +81,4 @@ class Map:
         # malt die wände
         for o in self.walls + self.hindernisse:
             self.mapimage.blit(o.design, o.rep)
+
