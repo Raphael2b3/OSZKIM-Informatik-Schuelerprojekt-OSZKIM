@@ -7,7 +7,7 @@ from Classes.Objects.Bomb import Bomb
 # Charactere
 class Player:
     # eigenschaften
-    speed = 5
+    speed = 2
     punkte = 0
     leben = 3
     bombcooldown = 0
