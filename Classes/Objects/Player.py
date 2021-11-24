@@ -21,7 +21,7 @@ class Player:
     hitbox = (33, 40)
     
     def __init__(self, id, name, afkAnimPath="Assets/Animation/Character1/Idle Blink/",
-                 walkingAnimPath="Assets/Animation/Character1/Walking/",walkingAnimPath="Assets/Animation/Character1/Dying/"):
+                 walkingAnimPath="Assets/Animation/Character1/Walking/",DyingAnimPath="Assets/Animation/Character1/Dying/"):
         # erstellt einzig artige eigenschaften
         self.walkingAnimPath = walkingAnimPath
         self.afkAnimPath = afkAnimPath
