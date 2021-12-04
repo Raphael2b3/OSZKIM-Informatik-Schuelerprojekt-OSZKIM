@@ -73,3 +73,4 @@ class Playerbox:
         self.boximage.blit(self.scoreimage[0], self.scoreimage[1])  # score des spielers
 
         p.draw.rect(self.boximage, (0, 0, 0), self.iconbox, 3, 5)  # border icon
+

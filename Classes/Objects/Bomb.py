@@ -15,11 +15,12 @@ class Bomb:
     def collision_detection(self, objekt, id, remove, map):
         if self.cooldown == 0:
             self.animation.collision_detection(objekt, id, remove, map)
-
+            
     def draw(self):
         if self.cooldown > 0:
             Bomberman.screen.blit(self.design, self.rep)
             self.cooldown -= 1
         elif self.animation.draw():
             self.player.bombs.pop(0)
+
 

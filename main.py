@@ -27,4 +27,5 @@ while True:
     Bomberman.clock.tick(Bomberman.fps)
     controls_events()
     render()
-    print(p.mouse.get_pos())
+    #print(p.mouse.get_pos())
+

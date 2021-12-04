@@ -52,7 +52,10 @@ class Bombanimation:
                     self.player.punkte += 10
                     x, y = map.scene.gui[self.player.id].scoreimage[1]
                     map.scene.gui[self.player.id].scoreimage = Bomberman.text_image(str(self.player.punkte), x=x, y=y)
-
+            elif id == "player" and objekt.rep.colliderect(self.hitboxen[key]):
+                deleted_hitboxen.append(key)
+                objekt.leben -=1
+                if objekt.leben <=0: objekt.dead = True
         for hitbox_key in deleted_hitboxen:
             self.hitboxen.pop(hitbox_key)
 
@@ -61,3 +64,4 @@ class Bombanimation:
             vect = self.vectors[k]
             self.hitboxen[k].topleft = (self.hitboxen[k].topleft[0] + vect[0]*self.speed,
                                         self.hitboxen[k].topleft[1] + vect[1]*self.speed)  # zukünftige hitbox
+

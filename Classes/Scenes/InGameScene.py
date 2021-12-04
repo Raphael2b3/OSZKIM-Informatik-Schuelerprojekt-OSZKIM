@@ -83,9 +83,14 @@ class InGameScene:
         for hindernis in self.map.hindernisse:
             for o in self.players + self.enemies + self.items:
                 o.collision_detection(hindernis, "hindernis", remove, self.map)
+        for player in self.players:
+            for b in self.players:
+                b.collision_detection(player, "player" ,remove,self.map)
         for o in remove:
             if o in self.map.hindernisse:
                 self.map.hindernisse.remove(o)
+            if o in self.players:
+                self.players.remove(o)
         if len(remove) > 0:
             self.map.update()
             for g in self.gui:
@@ -98,3 +103,4 @@ class InGameScene:
         self.map.draw()  # map
         for o in self.gui + self.players + self.enemies:  # draw objects
             o.draw()
+
