@@ -7,11 +7,12 @@ def controls_events():
     Bomberman.currentscene.key_press_handler(keys_pressed)
 
     events = p.event.get()
-    for event in events:
+    for event in events: # in main.py: jedes Event wird durchlaufen
         if event.type == p.QUIT:
             exit()
         else:
-            Bomberman.currentscene.event_handler(event)
+            Bomberman.currentscene.event_handler(event) # das momentane Event wird nach unten hin in der Hirachie
+            # durchgereicht
 
     Bomberman.currentscene.collision_detection()
 
