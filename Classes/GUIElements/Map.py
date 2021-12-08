@@ -20,7 +20,7 @@ class Map:
     barrier_design = p.image.load("Assets/Map/RTS_Crate_0.png")  # wände oben unten
     barrier_hitbox = (73, 73)
 
-    wall_design = p.image.load("Assets/Scam/theREALbox.png")  # wände oben unten
+    wall_design = p.image.load("Assets/Map/RTS_Crate_0.png")  # wände oben unten
     wall_hitbox = (73, 73)
 
     groundcolor = (39, 45, 64)
@@ -81,4 +81,5 @@ class Map:
         # malt die wände
         for o in self.walls + self.hindernisse:
             self.mapimage.blit(o.design, o.rep)
+
 
